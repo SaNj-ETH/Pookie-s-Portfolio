@@ -8,11 +8,11 @@ export function ExperienceTimeline({ data }) {
             <Text
                 position={[0, 2, 0]}
                 fontSize={0.4}
-                color="#00ffcc"
+                color="#007aff"
                 anchorX="center"
                 anchorY="middle"
             >
-                EXPERIENCE
+                CAREER PATH
             </Text>
             <group position={[-3, 0, 0]}>
                 {data.map((job, index) => (
@@ -48,10 +48,10 @@ function ExperienceTile({ job, index }) {
                 onPointerOut={() => setHover(false)}
             >
                 <meshStandardMaterial
-                    color={hovered ? "#1a1a1a" : "#0a0a0a"}
-                    emissive={hovered ? "#00ffcc" : "#000000"}
-                    emissiveIntensity={0.2}
-                    metalness={0.8}
+                    color={hovered ? "#ffffff" : "#f8f9fa"}
+                    emissive={hovered ? "#007aff" : "#000000"}
+                    emissiveIntensity={0.1}
+                    metalness={0.1}
                     roughness={0.2}
                 />
             </RoundedBox>
@@ -60,7 +60,7 @@ function ExperienceTile({ job, index }) {
                 <Text
                     position={[0, 0.5, 0]}
                     fontSize={0.18}
-                    color="#ffffff"
+                    color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                     maxWidth={2.5}
@@ -70,7 +70,7 @@ function ExperienceTile({ job, index }) {
                 <Text
                     position={[0, 0.2, 0]}
                     fontSize={0.12}
-                    color="#00ffcc"
+                    color="#007aff"
                     anchorX="center"
                     anchorY="middle"
                 >
@@ -79,7 +79,7 @@ function ExperienceTile({ job, index }) {
                 <Text
                     position={[0, -0.4, 0]}
                     fontSize={0.1}
-                    color="#888888"
+                    color="#666666"
                     anchorX="center"
                     anchorY="middle"
                     maxWidth={2.6}
@@ -93,7 +93,7 @@ function ExperienceTile({ job, index }) {
             {index > 0 && (
                 <mesh position={[-1.75, 0, -0.1]} rotation={[0, 0, Math.PI / 2]}>
                     <cylinderGeometry args={[0.02, 0.02, 0.5, 8]} />
-                    <meshBasicMaterial color="#333" />
+                    <meshBasicMaterial color="#e5e5ea" />
                 </mesh>
             )}
         </group>

@@ -9,11 +9,11 @@ export function ProjectsCubes({ data }) {
             <Text
                 position={[0, 2.5, 0]}
                 fontSize={0.4}
-                color="#00ffcc"
+                color="#007aff"
                 anchorX="center"
                 anchorY="middle"
             >
-                PROJECTS
+                CAMPAIGNS
             </Text>
             <group position={[0, 0, 0]}>
                 {data.map((project, index) => (
@@ -34,7 +34,6 @@ function ProjectCube({ project, index }) {
         const targetRotation = active ? Math.PI : 0;
         const targetScale = active ? 1.2 : 1;
 
-        // Smoothly interpolate rotation and scale
         groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotation, delta * 5);
         groupRef.current.scale.setScalar(THREE.MathUtils.lerp(groupRef.current.scale.x, targetScale, delta * 5));
     });
@@ -48,19 +47,17 @@ function ProjectCube({ project, index }) {
             onPointerOut={() => setHover(false)}
         >
             {/* Front Face: Title */}
-            <Box args={[2.5, 2.5, 2.5]}>
+            <Box args={[2.5, 2.5, 0.2]}>
                 <meshStandardMaterial
-                    color="#111"
-                    emissive="#00ffcc"
-                    emissiveIntensity={0.2}
-                    metalness={0.8}
+                    color="#ffffff"
                     roughness={0.2}
+                    metalness={0.1}
                 />
             </Box>
             <Text
-                position={[0, 0, 1.3]}
+                position={[0, 0, 0.11]}
                 fontSize={0.2}
-                color="#ffffff"
+                color="#1a1a1a"
                 anchorX="center"
                 anchorY="middle"
                 maxWidth={2}
@@ -71,20 +68,27 @@ function ProjectCube({ project, index }) {
 
             {/* Back Face: Details */}
             <group rotation={[0, Math.PI, 0]} position={[0, 0, 0]}>
+                <Box args={[2.5, 2.5, 0.2]}>
+                    <meshStandardMaterial
+                        color="#f0f0f0"
+                        roughness={0.2}
+                        metalness={0.1}
+                    />
+                </Box>
                 <Text
-                    position={[0, 0.5, 1.3]}
+                    position={[0, 0.5, 0.11]}
                     fontSize={0.15}
-                    color="#00ffcc"
+                    color="#007aff"
                     anchorX="center"
                     anchorY="middle"
                     maxWidth={2}
                 >
-                    DETAILS
+                    RESULTS
                 </Text>
                 <Text
-                    position={[0, 0, 1.3]}
+                    position={[0, 0, 0.11]}
                     fontSize={0.1}
-                    color="#ffffff"
+                    color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                     maxWidth={2}
@@ -93,9 +97,9 @@ function ProjectCube({ project, index }) {
                     {project.description}
                 </Text>
                 <Text
-                    position={[0, -0.8, 1.3]}
+                    position={[0, -0.8, 0.11]}
                     fontSize={0.08}
-                    color="#888888"
+                    color="#666666"
                     anchorX="center"
                     anchorY="middle"
                 >

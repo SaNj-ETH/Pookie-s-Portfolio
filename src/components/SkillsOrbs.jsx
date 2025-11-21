@@ -8,15 +8,14 @@ export function SkillsOrbs({ data }) {
             <Text
                 position={[0, 3, 0]}
                 fontSize={0.4}
-                color="#00ffcc"
+                color="#007aff"
                 anchorX="center"
                 anchorY="middle"
             >
-                SKILLS
+                EXPERTISE
             </Text>
             <group position={[0, 0, 0]}>
                 {data.map((skill, index) => {
-                    // Arrange in a circle
                     const angle = (index / data.length) * Math.PI * 2;
                     const radius = 3;
                     const x = Math.cos(angle) * radius;
@@ -45,14 +44,20 @@ function SkillOrb({ skill, position }) {
 
     const getMaterial = () => {
         switch (skill.type) {
-            case 'frontend':
-                return <meshStandardMaterial color="#00d4ff" metalness={0.8} roughness={0.2} />;
-            case 'backend':
-                return <meshStandardMaterial color="#ff006e" metalness={0.5} roughness={0.5} />;
-            case '3d':
-                return <MeshDistortMaterial color="#7000ff" distort={0.4} speed={2} />;
+            case 'marketing':
+                // Polished Blue Plastic
+                return <meshPhysicalMaterial color="#007aff" roughness={0.1} metalness={0.1} clearcoat={1} />;
+            case 'strategy':
+                // Matte Orange Ceramic
+                return <meshStandardMaterial color="#ff9500" roughness={0.8} metalness={0} />;
+            case 'data':
+                // Glass
+                return <meshPhysicalMaterial color="#ffffff" transmission={0.9} roughness={0} thickness={1} />;
+            case 'tech':
+                // Metallic
+                return <meshStandardMaterial color="#5856d6" metalness={0.8} roughness={0.2} />;
             default:
-                return <meshPhysicalMaterial transmission={1} thickness={1} roughness={0} />;
+                return <meshStandardMaterial color="#e5e5ea" />;
         }
     };
 
@@ -66,7 +71,7 @@ function SkillOrb({ skill, position }) {
                 <Text
                     position={[0, -0.9, 0]}
                     fontSize={0.15}
-                    color="#ffffff"
+                    color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                 >

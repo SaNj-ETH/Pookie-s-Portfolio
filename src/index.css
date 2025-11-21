@@ -1,12 +1,15 @@
 :root {
-  --color-bg: #050505;
-  --color-text: #ffffff;
-  --color-text-muted: #888888;
-  --color-primary: #00ffcc;
-  --color-secondary: #ff006e;
-  --color-accent: #7000ff;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --color-bg: #f8f9fa;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-primary: #007aff;
+  /* Bright Blue */
+  --color-secondary: #ff9500;
+  /* Orange for stats */
+  --color-accent: #5856d6;
+  /* Purple */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.8);
   --font-main: 'Inter', sans-serif;
   --font-display: 'Rajdhani', sans-serif;
 }
@@ -35,6 +38,7 @@ h6 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  color: var(--color-text);
 }
 
 a {
@@ -59,18 +63,22 @@ a {
 /* Utilities */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
 .glow-text {
-  text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+  /* Subtle glow for light mode */
+  text-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
 }
 
 .neon-border {
-  box-shadow: 0 0 10px var(--color-primary), inset 0 0 10px var(--color-primary);
+  /* Clean border for light mode */
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
+  border: 1px solid rgba(0, 122, 255, 0.2);
 }
 
 canvas {
